@@ -31,7 +31,7 @@ resource "aws_ecs_service" "main" {
   desired_count   = "1"
   launch_type     = "FARGATE"
   network_configuration {
-    subnets = [aws_subnet.private[0].id, aws_subnet.private[1].id]
+    subnets = aws_subnet.private.*.id
     security_groups = [aws_security_group.ecs-security-group.id]
   }
 
