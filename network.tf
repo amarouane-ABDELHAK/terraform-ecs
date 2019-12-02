@@ -47,6 +47,8 @@ resource "aws_nat_gateway" "gw" {
   allocation_id = element(aws_eip.gw.*.id, count.index)
 }
 
+
+
 resource "aws_route_table" "private" {
   count  = 2
   vpc_id = aws_vpc.main.id
